@@ -76,17 +76,16 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
 
-
-
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
 
 
 
-/* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+/* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın 
+ve konsolde gözlemleyin */
 
-/* kodlar buraya */
+var bircumle = cumleKur("Ben"," iyi"," bir"," yazılımcı"," olacağım!");
+console.log(bircumle);
 
 
 
@@ -95,19 +94,26 @@ var bircumle;
 /* 	GÖREV 1:
 		cumlelereDonustur fonksiyonuna aşağıdaki yönergeleri uygulayın.
 			1. `cumleler` adındaki dizi fonksiyonun BİRİNCİ parametresi olarak alınacak.
-			2. Kelime aralarındaki ayraç(seperator) olarak kullanılmak üzere bir string değişkeni fonksiyonun İKİNCİ parametresi olarak alınacak. Ayraç parametresine "," değerini ön tanımlı yapmanız beklenmektedir.
-			3. Dizinin içindeki her dizi elemanı 1 cümle oluşturacak şekilde uc uca eklenecek, kelimelerin aralarına 3. parametrede girilen ayraç yerleştirilecek;
-				NOT: cumlelereDonustur(cumleler, " ") fonksiyonu çağırıldığında şu dizinin oluşturacağı cümle: ["Annem","ekmek","almak","için","gitti."] => "Annem ekmek almak için gitti." şeklinde olmalıdır. 
+			2. Kelime aralarındaki ayraç(seperator) olarak kullanılmak üzere bir string değişkeni fonksiyonun İKİNCİ parametresi olarak alınacak. 
+			Ayraç parametresine "," değerini ön tanımlı yapmanız beklenmektedir.
+			3. Dizinin içindeki her dizi elemanı 1 cümle oluşturacak şekilde uc uca eklenecek, kelimelerin aralarına 3. parametrede girilen 
+			ayraç yerleştirilecek;
+				NOT: cumlelereDonustur(cumleler, " ") fonksiyonu çağırıldığında şu dizinin oluşturacağı cümle:
+				 ["Annem","ekmek","almak","için","gitti."] => "Annem ekmek almak için gitti." şeklinde olmalıdır. 
 				💡 İPUCU: Bu çalışmada cümleleri kolay oluşturmak için .map ve .join metodunu bir arada kullanmanız gerekmektedir. 
 			4. Oluşturulan her cümle yeni bir dizi oluşturulup o dizinin içine aktarılacak. 
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 	
-
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
+var ayrac = ","
+function cumlelereDonustur(cumleler,ayrac,ayrac2){
+var cumle = [];
+for(var i = 0; i < cumleler.length ; i++) {
+	cumle[i] = cumleler[i].join(ayrac);
 }
-
+return cumle
+}
+console.log(cumlelereDonustur(cumleler," "));
 
 
 /* GÖREV 2:
@@ -120,7 +126,7 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
+function paragrafOlustur(cumleler,cumleKur,cumlelereDonustur){
 	/* kodlar buraya */ 
 }
 
@@ -130,38 +136,33 @@ function paragrafOlustur(/* kodlar buraya */ ){
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
-/* kodlar buraya */
 
-
-
-
-
+meyveler.pop();
+meyveler.shift();
+console.log(meyveler);
  
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, Kirpiyi dizinin son elemanına ekleyin 🦔 
 */
 //3b çözümü
-/* kodlar buraya */
 
-
-
-
-
-
-
+sebzeler.unshift("🐇");
+sebzeler.push("🦔");
 
 /* 			3c. manav isminde bir dizi oluşturun.`meyveler` dizisi ilk elemanlara, `sebzeler` dizisi son elemanlara denk gelecek şekilde, iki diziyi birleştirip sonucu manav dizisine aktarın. (.concat metodu)
 	*/
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
-
-
-
+var manav = meyveler.concat(sebzeler);
+console.log(manav);
 
 
 /* 	GÖREV 4:
-		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor. Bunun için emojiler adında bir nesne tanımlamışlar. Kullanıcının gönderdiği mesaj stringi içinde emojiler nesnesinin anahtarı(index) bulunuyorsa, bu işareti otomatik olarak anahtara ait değerde tanımlanmış emoji ile değiştirecek bir fonksiyon geliştirmek istiyorlar. ÖRNEK: Mesaj içinde ":)" sembolü bulunursa mesajı alan kişi bu sembolü "🙂" olarak görecek. Burdan yola çıkarak emojileriDonustur fonksiyonuna aşağıdakileri uygulayın.
+		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor. Bunun için emojiler adında bir nesne tanımlamışlar.
+		 Kullanıcının gönderdiği mesaj stringi içinde emojiler nesnesinin anahtarı(index) bulunuyorsa, 
+		 bu işareti otomatik olarak anahtara ait değerde tanımlanmış emoji ile değiştirecek bir fonksiyon geliştirmek istiyorlar. 
+		 ÖRNEK: Mesaj içinde ":)" sembolü bulunursa mesajı alan kişi bu sembolü "🙂" olarak görecek. 
+		 Burdan yola çıkarak emojileriDonustur fonksiyonuna aşağıdakileri uygulayın.
 			1. Atılan mesaj stringi fonksiyonun birinci parametresi olarak alınacak
 			2. emojiler nesnesi fonksiyonun ikinci parametresi olarak alınacak
 			3. mesaj stringi emoji nesnesinde tanımlı olan tüm sembolleri istenilen değere dönüştürecek (.replaceAll metodu kullanılacak)
@@ -170,8 +171,11 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
+function emojileriDonustur(string,emojiler){
+if (string.includes(emojiler[0])) {
+	return string.replaceAll(emojiler[0])
+} 
+console.log(emojileriDonustur("Merhaba nasılsın :o seni özledim <3"));
 
 }
 
